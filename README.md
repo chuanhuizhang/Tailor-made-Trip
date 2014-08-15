@@ -45,3 +45,24 @@ Change Document directory of XAMPP
     Change User to your OS X username, and save the file:
     
     User yourusername
+    
+    
+Configure zend framework
+    
+    1. Download zend framework http://framework.zend.com/downloads/latest#ZF1, here we choose to use zend framework 1.
+    
+      Select Zend Framework 1.12.7 Full
+      
+    2.Open .bash_profile by [ subl ~/.bash_profile ],
+      and add [ alias zf="path/to/ZendFramework-1.12.7/bin/zf.sh" ] -- save and exit
+      
+      [ source ~/.bash_profile ]
+    
+    3. [ zf create project path/to/ProjectName ]  -- Here the path should be same to xampp document directory
+        Then, it will create several files and folders for you, which is the basic file organization of zend framework.
+        
+    4. Copy folder call zend in path/to/ZendFramework-1.12.7/library to you the folder libray in you project.
+    
+    5. Restart Apache, with url: http://localhost/ProjectName/public/, you will find a "Welcome to the Zend Framework!"
+      
+    [ cd path/to/ZendFramework-1.12.7/bin ]
