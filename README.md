@@ -19,3 +19,29 @@ Configure apache, php, mongoDB(For Mac)
     iii)[ cd /Applications/XAMPP/xamppfiles/etc ] [ vi php.ini ], add "extension=mongo.so" to the end.
   
   c. Restart Apache, and add phpinfo() to check.
+  
+  
+Change Document directory of XAMPP
+
+
+  [ cd /Applications/XAMPP/xamppfiles/etc ] [ subl http.conf ]
+  
+    DocumentRoot "/Users/zhangchuanhui/Documents/ZFWorkSpace"
+    
+    <Directory "/Users/zhangchuanhui/Documents/ZFWorkSpace">
+    
+  If you have 403 error:
+  
+    To fix this you can configure Apache to run as your OS X user. 
+    
+    Open /Applications/XAMPP/xamppfiles/etc/httpd.conf and look for the following lines:
+    
+    # User/Group: The name (or #number) of the user/group to run httpd as.
+    # It is usually good practice to create a dedicated user and group for
+    # running httpd, as with most system services.
+    #
+    User daemon
+    Group daemon
+    Change User to your OS X username, and save the file:
+    
+    User yourusername
