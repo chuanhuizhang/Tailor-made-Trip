@@ -66,3 +66,43 @@ Configure zend framework
     5. Restart Apache, with url: http://localhost/ProjectName/public/, you will find a "Welcome to the Zend Framework!"
       
     [ cd path/to/ZendFramework-1.12.7/bin ]
+    
+    
+Configure zend framework 1 and mongoDB
+
+  Useful link http://www.masterzendframework.com/zend-framework/writing-a-simple-blog-with-zend-framework-and-mongodb
+  
+  1. Download Shanty-Mongo : git clone https://github.com/coen-hyde/Shanty-Mongo.git
+  
+  2. Copy "Shanty" folder in Shanty-Mongo/library/ to your library folder in your project in the same directory with zend.
+  
+  3. Copy [ "autoloaderNamespaces[] = "Shanty" ] to application.inn in YourProject/application/configs/, and put it under [ production ] module.
+  
+  4. Suppose you have a collection named "users" in "mydb"(db name), create a file named "Users.php", and add 
+    <?php
+
+    class Users extends Shanty_Mongo_Document 
+    {
+        protected static $_db = 'mydb';
+        protected static $_collection = 'users';
+    }
+  
+  5. Go to the YourProject/application/controllers/IndexController.php, in "indexAction", add 
+    try {
+            $user = new Users();
+            $user->name = ('test');
+            $user->save();
+            $all_users = Users::all();
+            echo "<pre>";
+            foreach ($all_users as $element) {
+      			    print($element->name."<br />\n");
+      			}
+            echo "</pre>"; 
+            exit();
+        } catch (Exception $exc) {
+            echo $exc->getMessage();
+            echo "error";
+        }
+        echo "done";
+    }
+  6. Use browser to visit url : localhost/YourProject/public to test.
