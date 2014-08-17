@@ -70,8 +70,6 @@ Configure zend framework
     
 Configure zend framework 1 and mongoDB
 
-
-
   Useful link http://www.masterzendframework.com/zend-framework/writing-a-simple-blog-with-zend-framework-and-mongodb
   
   1. Download Shanty-Mongo : git clone https://github.com/coen-hyde/Shanty-Mongo.git
@@ -85,32 +83,44 @@ Configure zend framework 1 and mongoDB
   <?php
 
     class Users extends Shanty_Mongo_Document 
-    
     {
-        
         protected static $_db = 'mydb';
-        
         protected static $_collection = 'users';
-        
     }
   
   5. Go to the YourProject/application/controllers/IndexController.php, in "indexAction", add 
     
     try {
             $user = new Users();
+            
             $user->name = ('test');
+            
             $user->save();
+            
             $all_users = Users::all();
+            
             echo "<pre>";
+            
             foreach ($all_users as $element) {
-      			    print($element->name."<br />\n");
-      			}
+      			
+              print($element->name."<br />\n");
+      			
+            }
+            
             echo "</pre>"; 
+            
             exit();
-        } catch (Exception $exc) {
-            echo $exc->getMessage();
-            echo "error";
-        }
-        echo "done";
+        
+    } catch (Exception $exc) {
+        
+      echo $exc->getMessage();
+      
+      echo "error";
+    
     }
+        
+      echo "done";
+    
+    }
+
   6. Use browser to visit url : localhost/YourProject/public to test.
