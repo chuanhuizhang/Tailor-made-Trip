@@ -70,6 +70,8 @@ Configure zend framework
     
 Configure zend framework 1 and mongoDB
 
+
+
   Useful link http://www.masterzendframework.com/zend-framework/writing-a-simple-blog-with-zend-framework-and-mongodb
   
   1. Download Shanty-Mongo : git clone https://github.com/coen-hyde/Shanty-Mongo.git
@@ -83,9 +85,13 @@ Configure zend framework 1 and mongoDB
   <?php
 
     class Users extends Shanty_Mongo_Document 
+    
     {
+        
         protected static $_db = 'mydb';
+        
         protected static $_collection = 'users';
+        
     }
   
   5. Go to the YourProject/application/controllers/IndexController.php, in "indexAction", add 
