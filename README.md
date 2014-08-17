@@ -91,7 +91,6 @@ Configure zend framework 1 and mongoDB
   5. Go to the YourProject/application/controllers/IndexController.php, in "indexAction", add 
     
     try {
-
         $user = new Users();
         $user->name = ('test');
         $user->save();
@@ -102,13 +101,9 @@ Configure zend framework 1 and mongoDB
         }
         echo "</pre>"; 
         exit();
-        
     } catch (Exception $exc) {
-        
-      echo $exc->getMessage();
-      
-      echo "error";
-    
+        echo $exc->getMessage();
+        echo "error";
     }
     echo "done";
 
