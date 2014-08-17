@@ -78,8 +78,9 @@ Configure zend framework 1 and mongoDB
   
   3. Copy [ "autoloaderNamespaces[] = "Shanty" ] to application.inn in YourProject/application/configs/, and put it under [ production ] module.
   
-  4. Suppose you have a collection named "users" in "mydb"(db name), create a file named "Users.php", and add 
-    <?php
+  4. Suppose you have a collection named "users" in "mydb"(db name), create a file named "Users.php" in models folder, and add 
+    
+  <?php
 
     class Users extends Shanty_Mongo_Document 
     {
@@ -88,6 +89,7 @@ Configure zend framework 1 and mongoDB
     }
   
   5. Go to the YourProject/application/controllers/IndexController.php, in "indexAction", add 
+    
     try {
             $user = new Users();
             $user->name = ('test');
