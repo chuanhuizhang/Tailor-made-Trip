@@ -84,8 +84,10 @@ Configure zend framework 1 and mongoDB
 
     class Users extends Shanty_Mongo_Document 
     {
+    
         protected static $_db = 'mydb';
         protected static $_collection = 'users';
+        
     }
   
   5. Go to the YourProject/application/controllers/IndexController.php, in "indexAction", add 
