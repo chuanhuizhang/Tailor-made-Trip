@@ -104,9 +104,12 @@ Configure zend framework 1 and mongoDB
         exit();
         
     } catch (Exception $exc) {
+        
         echo $exc->getMessage();
         echo "error";
+        
     }
+    
     echo "done";
 
   6. Use browser to visit url : localhost/YourProject/public to test.
