@@ -92,35 +92,23 @@ Configure zend framework 1 and mongoDB
     
     try {
             $user = new Users();
-            
             $user->name = ('test');
-            
             $user->save();
-            
             $all_users = Users::all();
-            
             echo "<pre>";
-            
             foreach ($all_users as $element) {
-      			
               print($element->name."<br />\n");
-      			
             }
-            
             echo "</pre>"; 
-            
             exit();
         
     } catch (Exception $exc) {
         
       echo $exc->getMessage();
-      
       echo "error";
     
     }
-        
-      echo "done";
-    
+    echo "done";
     }
 
   6. Use browser to visit url : localhost/YourProject/public to test.
